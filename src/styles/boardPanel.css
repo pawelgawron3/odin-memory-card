@@ -1,0 +1,9 @@
+.boardPanel {
+  display: grid;
+  grid-template-columns: repeat(5, 120px);
+  gap: 12px;
+
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 10px;
+}
