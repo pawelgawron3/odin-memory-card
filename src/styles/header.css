@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 25vh;
+  background: linear-gradient(135deg, #a18cd1, #faabe4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header_content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header_content img {
+  height: 140px;
+}
+
+.header_content img:hover {
+  animation: tweak 0.8s ease-in-out;
+}
+
+@keyframes tweak {
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+.header_text p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
