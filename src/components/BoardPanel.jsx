@@ -3,11 +3,13 @@ import "../styles/boardPanel.css";
 import "../styles/card.css";
 import Card from "./Card";
 
-export default function BoardPanel({ cards }) {
+export default function BoardPanel({ cards, setMatchedPairs }) {
   const [firstCard, setFirstCard] = useState(null);
   const [revealedCards, setRevealedCards] = useState([]);
+  const [isLocked, setIsLocked] = useState(false);
 
   function handleClick(card) {
+    if (isLocked) return;
     if (revealedCards.includes(card.id)) return;
 
     setRevealedCards((prev) => [...prev, card.id]);
@@ -19,14 +21,17 @@ export default function BoardPanel({ cards }) {
 
     if (firstCard.pairId === card.pairId) {
       setFirstCard(null);
+      setMatchedPairs((prev) => prev + 1);
     } else {
+      setIsLocked(true);
+
       setTimeout(() => {
         setRevealedCards((prev) =>
           prev.filter((id) => id !== card.id && id !== firstCard.id),
         );
-      }, 500);
-
-      setFirstCard(null);
+        setFirstCard(null);
+        setIsLocked(false);
+      }, 700);
     }
   }
 
