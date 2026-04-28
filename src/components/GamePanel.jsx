@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import BoardPanel from "./BoardPanel";
+import "../styles/gamePanel.css";
 
 export default function GamePanel() {
   const [cards, setCards] = useState([]);
   const [matchedPairs, setMatchedPairs] = useState(0);
+  const [gameId, setGameId] = useState(0);
   const totalPairs = cards.length / 2;
-  const hasWon = matchedPairs === totalPairs;
+  const hasWon = totalPairs > 0 && matchedPairs === totalPairs;
 
   // Fisher–Yates
   function shuffleArray(array) {
@@ -43,24 +45,30 @@ export default function GamePanel() {
   }, []);
 
   return (
-    <>
+    <main>
       <div className="gamePanel">
         <button
           className="new_game_btn"
           onClick={() => {
             generateCards().then(setCards);
+            setMatchedPairs(0);
+            setGameId((prev) => prev + 1);
           }}
         >
           New game
         </button>
 
-        <p>
+        <p className="pairs_text">
           Pairs: {matchedPairs} / {totalPairs}
         </p>
 
         {hasWon && <p className="win_text">🎉You win!🎉</p>}
       </div>
-      <BoardPanel cards={cards} setMatchedPairs={setMatchedPairs} />
-    </>
+      <BoardPanel
+        key={gameId}
+        cards={cards}
+        setMatchedPairs={setMatchedPairs}
+      />
+    </main>
   );
 }
