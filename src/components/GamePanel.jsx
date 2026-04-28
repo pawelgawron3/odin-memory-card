@@ -3,6 +3,9 @@ import BoardPanel from "./BoardPanel";
 
 export default function GamePanel() {
   const [cards, setCards] = useState([]);
+  const [matchedPairs, setMatchedPairs] = useState(0);
+  const totalPairs = cards.length / 2;
+  const hasWon = matchedPairs === totalPairs;
 
   // Fisher–Yates
   function shuffleArray(array) {
@@ -50,8 +53,14 @@ export default function GamePanel() {
         >
           New game
         </button>
+
+        <p>
+          Pairs: {matchedPairs} / {totalPairs}
+        </p>
+
+        {hasWon && <p className="win_text">🎉You win!🎉</p>}
       </div>
-      <BoardPanel cards={cards} />
+      <BoardPanel cards={cards} setMatchedPairs={setMatchedPairs} />
     </>
   );
 }
