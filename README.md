@@ -22,4 +22,5 @@ The game fetches random dog images from an external API (thedogapi) and generate
 - External API for images
 
 🎮 Live Demo
-_See the "About" section for the live demo link._
+
+- _See the "About" section for the live demo link._
