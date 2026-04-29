@@ -1,5 +1,6 @@
 import Header from "./Header";
 import GamePanel from "./GamePanel";
+import Footer from "./Footer";
 import "../styles/app.css";
 
 export default function App() {
@@ -7,6 +8,7 @@ export default function App() {
     <div className="app">
       <Header />
       <GamePanel />
+      <Footer />
     </div>
   );
 }
