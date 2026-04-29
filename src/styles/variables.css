@@ -1,0 +1,15 @@
+:root {
+  /* COLORS */
+  --bg-left: #a18cd1;
+  --bg-right: #faabe4;
+
+  --text: rgba(255, 255, 255, 0.8);
+
+  /* SPACING */
+  --gap-sm: 12px;
+  --gap-md: 20px;
+
+  /* PADDING */
+  --padding-sm: 12px;
+  --padding-md: 20px;
+}
