@@ -3,14 +3,14 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: var(--padding-sm);
 }
 
 .gamePanel {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: var(--gap-md);
   margin-top: 20px;
 }
 
@@ -36,12 +36,12 @@ main {
 }
 
 .new_game_btn {
-  background: linear-gradient(130deg, #a18cd1, #faabe4);
+  background: linear-gradient(130deg, var(--bg-left), var(--bg-right));
   color: white;
   letter-spacing: 0.5px;
   border: none;
   border-radius: 12px;
-  padding: 12px 20px;
+  padding: var(--padding-sm) var(--padding-md);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
